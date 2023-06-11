@@ -5,9 +5,54 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        task1();
+        // task1();
+        // task2();
+        task3();
 
-        // System.out.println(LocalDateTime.now());
+    }
+
+    private static void task3() {
+        int[] arr = { 1, 1, 1, 3, 1, 3, 3, 1, 1, 0, 3, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1 };
+        int val = 3;
+        int[] resArr = new int[arr.length];
+        int count = 0;
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != val) {
+                resArr[index++] = arr[i];
+            } else {
+                count++;
+            }
+        for (int j = resArr.length - count; j < resArr.length; j++) {
+                resArr[j] = val;
+            }
+        }
+        for (int item : resArr) {
+            System.out.printf("%d\t", item);            
+        }
+
+    }
+
+    private static void task2() {
+        int[] arr = { 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1 };
+        int count = 0;
+        int countMax = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] == 1) {
+                count++;
+            } else {
+                if (countMax < count) {
+                    countMax = count;
+
+                }
+                count = 0;
+            }
+        }
+        if (countMax < count) {
+            countMax = count;
+        }
+        System.out.printf("Наибольшее количество единиц - %s", countMax);
 
     }
 
