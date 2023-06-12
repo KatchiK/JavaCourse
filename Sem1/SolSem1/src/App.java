@@ -7,7 +7,40 @@ public class App {
 
         // task1();
         // task2();
-        task3();
+        // task3();
+        task4();
+    }
+
+    private static int task4() {
+        // 1) берём 1 букву в первом слове - обходим все слова
+        // 2) Если буква есть во всех словах, то ++ в накопитель
+        // 3) Пункт 1
+        // 4) Если нет, то выход из программы
+
+        String[] arrayWords = { "domino", "dom", "domovoy", "domashniy" };
+        boolean prefixExit = true;
+        int res = 0;
+        String letter = null;
+        int numberLetter = 1;
+        int stringLength = arrayWords[0].length();
+
+        for (int i = 0; i < stringLength; i++) {
+
+            letter = arrayWords[0].substring(numberLetter, 1);
+            for (int j = 1; j < arrayWords.length; j++) {
+             
+                if (j < stringLength && letter == arrayWords[j].substring(numberLetter, 1)) {
+                    res++;
+
+                } else {
+                    res = 0;
+                    break;
+                }
+            }
+            numberLetter ++;
+        }
+
+        return res;
 
     }
 
@@ -23,12 +56,12 @@ public class App {
             } else {
                 count++;
             }
-        for (int j = resArr.length - count; j < resArr.length; j++) {
+            for (int j = resArr.length - count; j < resArr.length; j++) {
                 resArr[j] = val;
             }
         }
         for (int item : resArr) {
-            System.out.printf("%d\t", item);            
+            System.out.printf("%d\t", item);
         }
 
     }
