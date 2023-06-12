@@ -21,25 +21,34 @@ public class App {
         boolean prefixExit = true;
         int res = 0;
         String letter = null;
-        int numberLetter = 1;
+        int numberLetter = 0;
         int stringLength = arrayWords[0].length();
+        int i = 0;
 
-        for (int i = 0; i < stringLength; i++) {
+        while (prefixExit && i < stringLength) {
+            // for (int i = 0; i < stringLength; i++) {
 
-            letter = arrayWords[0].substring(numberLetter, 1);
+            letter = arrayWords[0].substring(numberLetter, numberLetter + 1);
+            System.out.println(letter);
             for (int j = 1; j < arrayWords.length; j++) {
-             
-                if (j < stringLength && letter == arrayWords[j].substring(numberLetter, 1)) {
+                    boolean b = letter == arrayWords[j].substring(numberLetter, numberLetter + 1);
+
+                if (stringLength < arrayWords[j].length() && j < stringLength
+                        && letter == arrayWords[j].substring(numberLetter, numberLetter + 1)) {
                     res++;
+
 
                 } else {
                     res = 0;
+                    prefixExit = false;
                     break;
                 }
             }
-            numberLetter ++;
+            numberLetter++;
+            i++;
         }
 
+        System.out.println(res);
         return res;
 
     }
