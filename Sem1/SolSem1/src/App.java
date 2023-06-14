@@ -11,6 +11,39 @@ public class App {
         task4();
     }
 
+
+    private static void task4() {
+        // Напишите метод, который находит самую длинную строку общего префикса среди
+        // массива строк.
+        // Если общего префикса нет, вернуть пустую строку "".
+        String[] lines = { "domino", "dom", "domovoy", "domashniy" };
+        System.out.println(findPfx(lines));
+        System.out.println(lines[0].substring(0, findPfx(lines)));
+
+    }
+
+    private static int findPfx(String[] lines) {
+        int res = 0;
+        boolean pfxExist = true;
+        while (pfxExist) {
+            res++;
+            for (int i = 0; i < (lines.length - 1); i++) {
+                if (res <= lines[i].length() && res <= lines[i + 1].length()) {
+                    if (lines[i].substring(0, res).compareTo(lines[i + 1].substring(0, res)) != 0) {
+                        res--;
+                        pfxExist = false;
+                        break;
+                    }
+                } else {
+                    res--;
+                        pfxExist = false;
+                        break;
+                }
+            }
+        }
+        return res;
+    }
+    /* 
     private static int task4() {
         // 1) берём 1 букву в первом слове - обходим все слова
         // 2) Если буква есть во всех словах, то ++ в накопитель
@@ -29,12 +62,12 @@ public class App {
             // for (int i = 0; i < stringLength; i++) {
 
             letter = arrayWords[0].substring(numberLetter, numberLetter + 1);
-            System.out.println(letter);
+            System.out.println(letter)  ;
             for (int j = 1; j < arrayWords.length; j++) {
                     boolean b = letter == arrayWords[j].substring(numberLetter, numberLetter + 1);
 
                 if (stringLength < arrayWords[j].length() && j < stringLength
-                        && letter == arrayWords[j].substring(numberLetter, numberLetter + 1)) {
+                        && arrayWords[j].substring(numberLetter, numberLetter + 1).compareTo(letter) !=0) {
                     res++;
 
 
@@ -52,6 +85,7 @@ public class App {
         return res;
 
     }
+    */
 
     private static void task3() {
         int[] arr = { 1, 1, 1, 3, 1, 3, 3, 1, 1, 0, 3, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1 };
