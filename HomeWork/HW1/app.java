@@ -18,38 +18,45 @@ public class app {
     private static void task2() {
         boolean end = false;
         int number = 1;
-        int divider = 3;
+        //int divider = 3;
 
         while (number <= 100) {
             boolean primeNumber = true;
             while (primeNumber == true) {
+                int divider = 3;
 
                 if (divider < number) {
+                    
                     if (number % divider == 0) {
                         primeNumber = false;
-                        System.out.println(primeNumber);
-                    } 
+
+                    } else {
+                        divider = divider + 1;
+                    }
 
                 } else {
                     System.out.println(number);
                     primeNumber = false;
 
                 }
+                ;
 
-                divider = divider + 1;
+                // divider = divider + 1;
 
             }
+            ;
             number = number + 1;
 
         }
+        ;
 
     }
-
+ 
     private static void task1() {
         System.out.printf("Enter number: ");
 
         Scanner in = new Scanner(System.in);
-        System.out.print("Input a number: ");
+
         int NumberN = in.nextInt();
 
         int amount = 0;
