@@ -11,12 +11,38 @@ public class app {
          * 3) Реализовать простой калькулятор
          */
         // task1();
-        task2();
+        // task2();
+        task3();
+
+    }
+
+    private static void task3() {
+        System.out.printf("Enter the first number: ");
+        Scanner in = new Scanner(System.in);
+        int Number1 = in.nextInt();
+        System.out.printf("Enter the second number: ");
+        int Number2 = in.nextInt();
+        System.out.printf("Enter the arithmetic action: ");
+        String arithmeticAction = in.next();
+        //System.out.printf(arithmeticAction);
+        if (arithmeticAction.equals("+")) {
+            System.out.println(Number1 + Number2);
+        } else if (arithmeticAction.equals("-")) {
+            System.out.println(Number1 - Number2);
+        } else if (arithmeticAction.equals("/")) {
+            System.out.println(Number1 / Number2);
+        } else if (arithmeticAction.equals("*")) {
+            System.out.println(Number1 * Number2);
+
+        } else {
+            System.out.printf("Мistake");
+        }
+        in.close();
 
     }
 
     private static void task2() {
-        //boolean end = false;
+        // boolean end = false;
         int number = 2;
         int divider = 2;
         int primeNumber = 0;
@@ -31,18 +57,18 @@ public class app {
                     primeNumber = 0;
                 } else {
                     primeNumber = number;
-                    
+
                 }
                 divider = divider + 1;
             }
             if (primeNumber != 0) {
                 System.out.println(number);
-                countPrimeNumber ++;
+                countPrimeNumber++;
             }
             number = number + 1;
         }
         System.out.printf("Количество простых чисел: %s", countPrimeNumber);
-        }
+    }
 
     private static void task1() {
         System.out.printf("Enter number: ");
