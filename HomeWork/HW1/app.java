@@ -16,42 +16,34 @@ public class app {
     }
 
     private static void task2() {
-        boolean end = false;
-        int number = 1;
-        //int divider = 3;
+        //boolean end = false;
+        int number = 2;
+        int divider = 2;
+        int primeNumber = 0;
+        int countPrimeNumber = 0;
 
-        while (number <= 100) {
-            boolean primeNumber = true;
-            while (primeNumber == true) {
-                int divider = 3;
-
-                if (divider < number) {
-                    
-                    if (number % divider == 0) {
-                        primeNumber = false;
-
-                    } else {
-                        divider = divider + 1;
-                    }
-
+        while (number <= 1000) {
+            divider = 2;
+            primeNumber = 1;
+            while (divider < number) {
+                if (number % divider == 0) {
+                    divider = number;
+                    primeNumber = 0;
                 } else {
-                    System.out.println(number);
-                    primeNumber = false;
-
+                    primeNumber = number;
+                    
                 }
-                ;
-
-                // divider = divider + 1;
-
+                divider = divider + 1;
             }
-            ;
+            if (primeNumber != 0) {
+                System.out.println(number);
+                countPrimeNumber ++;
+            }
             number = number + 1;
-
         }
-        ;
+        System.out.printf("Количество простых чисел: %s", countPrimeNumber);
+        }
 
-    }
- 
     private static void task1() {
         System.out.printf("Enter number: ");
 
